@@ -16,7 +16,7 @@ class BooksController < ApplicationController
     end
 
     def book_params
-        {name: params[:name], genre: params[:genre], author: params[:author], rating: params[:rating], cover_url: params[:cover_url]}
+        {title: params[:title], genre: params[:genre], author: params[:author], rating: params[:rating], cover_url: params[:cover_url]}
     end
   
 end
