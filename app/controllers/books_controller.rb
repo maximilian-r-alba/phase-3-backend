@@ -5,9 +5,10 @@ class BooksController < ApplicationController
         books.to_json
     end
 
-    get '/books/:id/reviews' do
-        reviews = Book.find(params[:id]).reviews
-        reviews.to_json
+    get '/books/:id' do 
+        book = Book.find(params[:id])
+        book.to_json
     end
 
+  
 end
