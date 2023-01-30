@@ -5,4 +5,9 @@ class BooksController < ApplicationController
         books.to_json
     end
 
+    get '/books/:id/reviews' do
+        binding.pry
+
+    end
+
 end
