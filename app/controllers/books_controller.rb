@@ -10,5 +10,13 @@ class BooksController < ApplicationController
         book.to_json
     end
 
+    post '/books' do 
+        book = Book.create(book_params)
+        book.to_json
+    end
+
+    def book_params
+        {name: params[:name], genre: params[:genre], author: params[:author], rating: params[:rating], cover_url: params[:cover_url]}
+    end
   
 end
