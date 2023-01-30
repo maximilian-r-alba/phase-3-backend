@@ -6,8 +6,8 @@ class BooksController < ApplicationController
     end
 
     get '/books/:id/reviews' do
-        binding.pry
-
+        reviews = Book.find(params[:id]).reviews
+        reviews.to_json
     end
 
 end
