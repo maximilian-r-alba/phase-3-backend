@@ -13,7 +13,9 @@ end
 
 10.times do
     User.create(
-        name: Faker::Name.name
+        name: Faker::Name.name,
+        avatar_url: Faker::Avatar.image(size:"500x500", format:"jpg"),
+        bio: Faker::Lorem.paragraphs(number:1)
     )
 end
 
