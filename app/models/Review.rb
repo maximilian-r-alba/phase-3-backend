@@ -2,6 +2,7 @@ class Review < ActiveRecord::Base
     belongs_to :user
     belongs_to :book
     after_create :calculate_rating
+    has_many :comments
 
     private
         def calculate_rating

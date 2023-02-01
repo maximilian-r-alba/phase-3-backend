@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_01_004033) do
+ActiveRecord::Schema.define(version: 2023_02_01_004826) do
 
   create_table "books", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 2023_02_01_004033) do
     t.float "rating"
     t.string "cover_url"
     t.string "summary"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "message"
+    t.integer "user_id"
+    t.integer "review_id"
   end
 
   create_table "reviews", force: :cascade do |t|
