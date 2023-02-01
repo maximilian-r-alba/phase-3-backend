@@ -7,7 +7,8 @@ puts "🌱 Seeding spices..."
         genre: Faker::Book.genre, 
         author: Faker::Book.author, 
         rating: rand(1..5), 
-        cover_url: Faker::LoremFlickr.image(size: "640x480", search_terms:['book', 'cover', 'title'], match_all: true)
+        cover_url: Faker::LoremFlickr.image(size: "640x480", search_terms:['book', 'cover', 'title'], match_all: true),
+        summary: Faker::Lorem.paragraphs(number: 1)
     )
 end
 
