@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_01_004826) do
+ActiveRecord::Schema.define(version: 2023_02_02_005924) do
 
   create_table "books", force: :cascade do |t|
     t.string "name"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 2023_02_01_004826) do
     t.string "name"
     t.string "avatar_url"
     t.string "bio"
+    t.string "username"
+    t.string "password"
   end
 
 end
