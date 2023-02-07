@@ -16,7 +16,6 @@ class BooksController < ApplicationController
     end
     get '/books/genre/fiction' do
         filtered = Book.all.select{|book| book.fiction?}
-        binding.pry
         filtered.to_json
     end
     get '/books/genre/nonfiction' do

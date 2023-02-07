@@ -4,7 +4,7 @@ puts "🌱 Seeding spices..."
 
 50.times do
     Book.create(
-        name: Faker::Book.title, 
+        title: Faker::Book.title, 
         subgenre: Faker::Book.genre, 
         author: Faker::Book.author, 
         rating: rand(1..5), 
