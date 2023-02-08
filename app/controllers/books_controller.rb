@@ -1,3 +1,4 @@
+require 'pry'
 class BooksController < ApplicationController
 
     get '/books' do
@@ -45,7 +46,7 @@ class BooksController < ApplicationController
     end
 
     def book_params(params)
-        {title: params[:title], genre: params[:genre], author: params[:author], rating: params[:rating], cover_url: params[:cover_url]}
+        {title: params[:title], subgenre: params[:genre], author: params[:author], summary: params[:summary], cover_url: params[:cover_url], fiction?: params[:fiction?]}
     end
 
   
