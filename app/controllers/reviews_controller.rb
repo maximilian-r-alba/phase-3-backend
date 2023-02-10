@@ -10,6 +10,11 @@ class ReviewsController < ApplicationController
         reviews.to_json
     end
 
+    get '/reviews/:id/book' do
+        book = Review.find(params[:id]).book
+        book.to_json
+    end
+
     post '/reviews' do
 
         review = Review.create(review_params)

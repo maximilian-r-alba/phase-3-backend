@@ -26,7 +26,7 @@ class BooksController < ApplicationController
     # end
 
     get '/books/genre/fiction' do
-        ficitonBooks = Book.all.select{|book| book.fiction?}
+        fictionBooks = Book.all.select{|book| book.fiction?}
         fictionBooks.to_json
     end
 
