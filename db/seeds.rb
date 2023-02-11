@@ -7,9 +7,9 @@ puts "🌱 Seeding spices..."
         title: Faker::Book.title, 
         subgenre: Faker::Book.genre, 
         author: Faker::Book.author, 
-        rating: rand(1..5), 
+        rating: rand(1.0..5.0), 
         cover_url: "https://loremflickr.com/640/480/book,title,cover",
-        summary: Faker::Lorem.paragraphs(number: 1),
+        summary: Faker::Lorem.paragraph(sentence_count: 3, random_sentences_to_add:3),
         fiction?: [true, false].sample
     )
 end
@@ -30,7 +30,7 @@ end
         rating: rand(1..5),
         user_id: User.all.map{|user| user.id}.sample,
         book_id: Book.all.map{|book| book.id}.sample,
-        content: Faker::Lorem.paragraphs(number: 3)
+        content: [Faker::Lorem.paragraph_by_chars, Faker::Lorem.paragraph_by_chars].join("/n")
     )
 end
 
