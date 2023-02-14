@@ -16,8 +16,14 @@ class ReviewsController < ApplicationController
     end
 
     post '/reviews' do
-
         review = Review.create(review_params)
+        review.to_json
+    end
+
+    patch '/reviews/:id' do
+       
+        review = Review.find(params[:id])
+        review.update(review_params)
         review.to_json
     end
 
