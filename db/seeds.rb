@@ -29,7 +29,7 @@ end
         rating: rand(1..5),
         user_id: User.all.map{|user| user.id}.sample,
         book_id: Book.all.map{|book| book.id}.sample,
-        content: [Faker::Lorem.paragraph_by_chars, Faker::Lorem.paragraph_by_chars].join("/n")
+        content: [Faker::Lorem.paragraph_by_chars, Faker::Lorem.paragraph_by_chars].join("\n")
     )
 end
 
