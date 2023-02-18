@@ -27,6 +27,12 @@ class ReviewsController < ApplicationController
         review.to_json
     end
 
+    delete '/reviews/:id' do
+        review = Review.find(params[:id])
+        review.destroy
+        review.to_json
+    end
+
     def review_params
         {title: params[:title], rating: params[:rating], user_id: params[:user_id], book_id: params[:book_id], content: params[:content]}
     end
