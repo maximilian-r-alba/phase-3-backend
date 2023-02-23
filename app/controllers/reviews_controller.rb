@@ -1,23 +1,13 @@
 class ReviewsController < ApplicationController
 
-    get '/books/:id/reviews' do
-        reviews = Book.find(params[:id]).reviews
-        reviews.to_json
-    end
-
-    get '/users/:id/reviews' do
-        reviews = User.find(params[:id]).reviews
-        reviews.to_json
+    post '/reviews' do
+        review = Review.create(review_params)
+        review.to_json
     end
 
     get '/reviews/:id/book' do
         book = Review.find(params[:id]).book
         book.to_json
-    end
-
-    post '/reviews' do
-        review = Review.create(review_params)
-        review.to_json
     end
 
     patch '/reviews/:id' do
