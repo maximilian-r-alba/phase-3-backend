@@ -26,26 +26,10 @@ class BooksController < ApplicationController
         sorted.to_json
     end
 
-    
-
-    # get '/books/author/:sort_method' do
-    #       case params[:sort_method]
-                    # when 'alphabetical'
-                    # sorted = Book.all.sort_by{|book| book.author}
-                    # sorted.to_json
-            # end
-
-    # end
-
     get '/books/genre/fiction' do
         fictionBooks = Book.all.select{|book| book.fiction?}
         fictionBooks.to_json
     end
-
-    # get '/books/genre/fiction/:genre' do
-    #     ficitonBooks = Book.all.select{|book| book.fiction?}
-    #     filteredFiciton = fictionBooks.select{|book| book.genre == params[:genre]}
-    # end
 
     get '/books/genre/nonfiction' do
         nonfictionBooks = Book.all.select{|book| !book.fiction?}
