@@ -6,15 +6,27 @@ class BooksController < ApplicationController
         books.to_json
     end
 
+    get '/books/toprated' do 
+        top_five = Book.all.select{|book| book.rating}.sort_by{|book| book.rating}.reverse.first(10)
+        top_five.to_json
+    end
+
     get '/books/:id' do 
         book = Book.find(params[:id])
         book.to_json
+    end
+
+    get '/books/:id/reviews' do
+        reviews = Book.find(params[:id]).reviews
+        reviews.to_json
     end
 
     get '/books/author/alphabetical' do
         sorted = Book.all.sort_by{|book| book.author}
         sorted.to_json
     end
+
+    
 
     # get '/books/author/:sort_method' do
     #       case params[:sort_method]
@@ -46,7 +58,7 @@ class BooksController < ApplicationController
     end
 
     def book_params(params)
-        {title: params[:title], subgenre: params[:genre], author: params[:author], summary: params[:summary], cover_url: params[:cover_url], fiction?: params[:fiction?]}
+        {title: params[:title], subgenre: params[:subgenre], author: params[:author], summary: params[:summary], cover_url: params[:cover_url], fiction?: params[:fiction?]}
     end
 
   
