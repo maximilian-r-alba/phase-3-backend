@@ -15,7 +15,7 @@ class Review < ActiveRecord::Base
             total_reviews = book.reviews.count
             
             average_rating = (reviews_sum/total_reviews).round(2)
-            binding.pry
+            
             book.update(rating:average_rating)
         end
 
