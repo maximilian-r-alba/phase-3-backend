@@ -10,12 +10,10 @@ class UsersController < ApplicationController
         user.to_json
     end
 
-    post "/users" do
-        user = User.create(user_params)
-        user.to_json
+    get '/users/:id/reviews' do
+        reviews = User.find(params[:id]).reviews
+        reviews.to_json
     end
 
-    def user_params
-        {name: params[:name]}
-    end
+   
 end
