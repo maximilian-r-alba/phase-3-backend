@@ -2,7 +2,7 @@ require 'pry'
 class BooksController < ApplicationController
 
     get '/books' do
-        books = Book.all
+        books = Book.all.sort_by{|book| book.title}
         books.to_json
     end
 
@@ -27,12 +27,12 @@ class BooksController < ApplicationController
     end
 
     get '/books/genre/fiction' do
-        fictionBooks = Book.all.select{|book| book.fiction?}
+        fictionBooks = Book.all.sort_by{|book| book.title}.select{|book| book.fiction?}
         fictionBooks.to_json
     end
 
     get '/books/genre/nonfiction' do
-        nonfictionBooks = Book.all.select{|book| !book.fiction?}
+        nonfictionBooks = Book.all.sort_by{|book| book.title}.select{|book| !book.fiction?}
         nonfictionBooks.to_json
     end
 
