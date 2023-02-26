@@ -17,7 +17,7 @@ end
     User.create(
         name: Faker::Name.name,
         avatar_url: Faker::Avatar.unique.image(size:"500x500", format:"jpg"),
-        bio: Faker::Lorem.paragraphs(number:1),
+        bio: Faker::Lorem.paragraph(sentence_count: 8),
         username: Faker::Internet.username(specifier: 5..8),
         password: Faker::Internet.password(min_length: 4, max_length: 8)
     )
