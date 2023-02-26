@@ -7,8 +7,8 @@ class BooksController < ApplicationController
     end
 
     get '/books/toprated' do 
-        top_five = Book.all.select{|book| book.rating}.sort_by{|book| book.rating}.reverse.first(10)
-        top_five.to_json
+        top_ten = Book.all.select{|book| book.rating}.sort_by{|book| book.rating}.reverse.first(10)
+        top_ten.to_json
     end
 
     get '/books/:id' do 
