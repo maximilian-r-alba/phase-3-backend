@@ -5,13 +5,12 @@ class ReviewsController < ApplicationController
         review.to_json
     end
 
-    get '/reviews/:id/book' do
-        book = Review.find(params[:id]).book
-        book.to_json
+    get '/reviews/book/:id' do
+        book = Review.all.find_by("book_id = ?" , params[:id]).book
+        book.to_json(include: {reviews: {include: :user}})
     end
 
     patch '/reviews/:id' do
-       
         review = Review.find(params[:id])
         review.update(review_params)
         review.to_json
