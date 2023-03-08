@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_07_025445) do
+ActiveRecord::Schema.define(version: 2023_03_08_062155) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -20,12 +20,6 @@ ActiveRecord::Schema.define(version: 2023_02_07_025445) do
     t.string "cover_url"
     t.string "summary"
     t.boolean "fiction?"
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.string "message"
-    t.integer "user_id"
-    t.integer "review_id"
   end
 
   create_table "reviews", force: :cascade do |t|
