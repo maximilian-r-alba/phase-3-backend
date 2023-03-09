@@ -6,8 +6,8 @@ class ReviewsController < ApplicationController
     end
 
     get '/reviews/book/:id' do
-        book = Review.all.find_by("book_id = ?" , params[:id]).book
-        book.to_json(include: {reviews: {include: :user}})
+        reviews = Review.all.where(book_id: params[:id])
+        reviews.to_json(:include => [:book , :user])
     end
 
     patch '/reviews/:id' do
